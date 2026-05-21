@@ -27,7 +27,7 @@ The right-skewed target variable implies that OLS residuals will show heterosced
 
 ## 3. Outlier Detection
 
-![IQR Outlier Distributions](08_iqr_outlier_histograms.png)
+![IQR Outlier Distributions](charts/08_iqr_outlier_histograms.png)
 
 IQR-based outlier detection was preferred over Z-score for all three continuous variables:
 
@@ -41,7 +41,7 @@ For binary (`Senior`) and ordinal (`Education Level`) variables, outlier detecti
 
 ## 4. Bivariate Relationships — Numerical Variables
 
-![Pearson Correlation Matrix](04_correlation_matrix.png)
+![Pearson Correlation Matrix](charts/04_correlation_matrix.png)
 
 The correlation matrix reveals two critical findings:
 
@@ -53,7 +53,7 @@ The correlation matrix reveals two critical findings:
 
 ## 5. Categorical Associations (Cramér's V)
 
-![Cramér's V Matrix](05_cramers_v_matrix.png)
+![Cramér's V Matrix](charts/05_cramers_v_matrix.png)
 
 - **Country ↔ Race (V ≈ 0.70):** Very strong association — demographic composition varies systematically by country. Both variables share substantial structural information and should not simultaneously enter a model without regularisation.
 - **Gender ↔ Job Title (V ≈ 0.42):** Moderate association reflecting occupational gender segregation — the core signal exploited by the logistic regression model in Section 8.
@@ -62,7 +62,7 @@ The correlation matrix reveals two critical findings:
 
 ## 6. Salary by Categorical Variables
 
-![Salary Distribution by Categorical Variable](06_salary_vs_categoricals.png)
+![Salary Distribution by Categorical Variable](charts/06_salary_vs_categoricals.png)
 
 Key findings from the boxplot analysis:
 
@@ -76,9 +76,9 @@ Key findings from the boxplot analysis:
 
 ## 7. Linear Regression — Full OLS Model
 
-![Residual Diagnostics](09_residual_diagnostics.png)
+![Residual Diagnostics](charts/09_residual_diagnostics.png)
 
-![5-Fold Cross-Validation — Full Model](10_cv_full_model.png)
+![5-Fold Cross-Validation — Full Model](charts/10_cv_full_model.png)
 
 The full OLS model achieves a **CV R² ≈ 0.82** and **CV RMSE ≈ \$22k** across 5 folds — a strong result for a salary prediction task. However, the residual diagnostics reveal important limitations:
 
@@ -91,7 +91,7 @@ The full OLS model achieves a **CV R² ≈ 0.82** and **CV RMSE ≈ \$22k** acro
 
 ## 8. Linear Regression — Forward Selection Model
 
-![Forward-Selected Model Results](12_forward_model_results.png)
+![Forward-Selected Model Results](charts/12_forward_model_results.png)
 
 Forward selection identifies the **most informative subset of features** while delivering equivalent predictive performance to the full model:
 
@@ -109,7 +109,7 @@ The forward model is **recommended for deployment**: it retains interpretability
 
 ## 9. PCA — Dimensionality Reduction
 
-![PCA Cumulative Variance Explained](13_pca_scree_plot.png)
+![PCA Cumulative Variance Explained](charts/13_pca_scree_plot.png)
 
 After one-hot encoding, the feature matrix contains ~55 columns. PCA analysis shows:
 
@@ -124,7 +124,7 @@ PCA-based regression achieves near-identical predictive accuracy to the forward 
 
 ## 10. Factor Analysis & Logistic Regression — Predicting Gender
 
-![Factor Analysis Scree Plot](15_fa_scree_kaiser.png)
+![Factor Analysis Scree Plot](charts/15_fa_scree_kaiser.png)
 
 Factor Analysis on the logistic regression feature space (43 components for 95% variance; Kaiser criterion: 37 components) identifies two interpretable latent dimensions under a 2-factor Varimax solution:
 
@@ -133,7 +133,7 @@ Factor Analysis on the logistic regression feature space (43 components for 95% 
 
 Variables with high communality (> 70%) — Age, Experience, Salary, Education Level — are well-represented by the 2-factor solution. Most Job Title dummies have communalities near 0%, as their variance is idiosyncratic to each specific category and requires many additional factors to capture.
 
-![Logistic Regression Results](17_logistic_regression_results.png)
+![Logistic Regression Results](charts/17_logistic_regression_results.png)
 
 The logistic regression model (LASSO regularisation + PCA features) for predicting gender achieves an **AUC-ROC = 0.686**, which falls in the "poor but above chance" range. Key observations:
 
@@ -145,7 +145,7 @@ The logistic regression model (LASSO regularisation + PCA features) for predicti
 
 ## 11. Hierarchical Clustering
 
-![Dendrograms](18_dendrograms.png)
+![Dendrograms](charts/18_dendrograms.png)
 
 Hierarchical clustering was applied on PCA-reduced features (20 components, ~70% variance retained) using Ward and Complete linkage methods on a representative sample of 400 records.
 
@@ -154,7 +154,7 @@ Both dendrograms support a **3-cluster partition** as the most natural cut:
 - **Ward linkage** produces three balanced, compact clusters separated by clear gaps in the merge distance.
 - **Complete linkage** identifies a similar structure but with a smaller, more extreme high-seniority cluster.
 
-![Cluster Profiles](19_cluster_profiles.png)
+![Cluster Profiles](charts/19_cluster_profiles.png)
 
 The three clusters map cleanly onto **career stages**:
 
