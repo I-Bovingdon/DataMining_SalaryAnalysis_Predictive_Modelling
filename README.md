@@ -1,4 +1,6 @@
-# Data Mining - Salary Data Analysis & Predictive Modelling - Conclusions
+## Data Mining - Salary Data Analysis & Predictive Modelling 
+
+# Conclusions
 
 **Dataset:** `Salary_MD.csv` — 6,684 employee records, 9 features  
 **Scope:** End-to-end analysis covering data quality, exploratory analysis, linear regression, logistic regression, dimensionality reduction (PCA & Factor Analysis), and hierarchical clustering.
