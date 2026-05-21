@@ -17,7 +17,7 @@ The most important missing-value finding concerned `Gender`: the 71 null records
 
 ## 2. Univariate Analysis — Salary Distribution
 
-![Salary Univariate Analysis](01_salary_univariate.png)
+![Salary Univariate Analysis](charts/01_salary_univariate.png)
 
 The salary distribution is roughly uniform in the \$0–\$250k range with a strong right tail (skewness ≈ 8.12). Mean (\$116k) and median (\$115k) are nearly identical, confirming the central tendency is robust despite extreme values. Only **8 IQR outliers** were detected in the salary variable itself — the extreme values visible in the boxplot (up to \$2.16M) co-occur with impossible Age/Experience records that were already removed during cleaning.
 
